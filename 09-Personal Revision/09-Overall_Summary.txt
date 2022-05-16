@@ -1,0 +1,1 @@
+"responsive" web design -> it will adapt to different screen sizes.
