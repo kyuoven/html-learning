@@ -1,0 +1,173 @@
+<!--
+
+Objective: Build an app that is functionally similar to https://tribute-page.freecodecamp.rocks
+
+User Stories:
+
+    Your tribute page should have an element with a corresponding id="main", which contains all other elements
+    You should see an element with an id of title, which contains a string (i.e. text), that describes the subject of the tribute page (e.g. "Dr. Norman Borlaug")
+    You should see either a figure or a div element with an id of img-div
+    Within the img-div element, you should see an img element with a corresponding id="image"
+    Within the img-div element, you should see an element with a corresponding id="img-caption" that contains textual content describing the image shown in img-div
+    You should see an element with a corresponding id="tribute-info", which contains textual content describing the subject of the tribute page
+    You should see an a element with a corresponding id="tribute-link", which links to an outside site, that contains additional information about the subject of the tribute page. HINT: You must give your element an attribute of target and set it to _blank in order for your link to open in a new tab
+    Your #image should use max-width and height properties to resize responsively, relative to the width of its parent element, without exceeding its original size
+    Your img element should be centered within its parent element
+
+Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding!
+
+Note: Be sure to add <link rel="stylesheet" href="styles.css"> in your HTML to link your stylesheet and apply your CSS
+
+Personal notes: - find out how to do preview in vscode  (aka figure out what extension u have dumbass)
+CTRL+SHIFT+V !!!!!!!!!!!!!!!!!!!
+
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+<main>
+
+    <head>
+        <title id="Hello Kitty Rulez">
+        </title>
+    </head>
+
+    <body>
+        <style>
+            body {
+                color: white;
+            }
+
+            h1 {
+                color: #94daf7;
+                font-family: Monospace;
+                font-size: 30px;
+                background-color: #ffdeee;
+                display: flex;
+                justify-content: center;
+            }
+
+            p {
+                color: rgb(255, 255, 255);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 17px;
+            }
+
+            ul {
+                color: pink;
+                font-size: 20px;
+            }
+
+            a {
+                font-size: 15px;
+                display: flex;
+                justify-content: center;
+            }
+
+            h2 {
+                color: pink;
+                font-size: 25px;
+            }
+
+            label {
+                color: skyblue;
+            }
+
+            .centered {
+                display: flex;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+
+
+            }
+
+            .border img {
+                border: 5px solid #71badc;
+                border-radius: 20px;
+                border-width: 10px;
+                padding: 10px;
+                height: 300px
+            }
+
+            .smaller-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .bigger-image {
+                height: 100%;
+                width: 100%;
+            }
+
+            .border2 {
+                border: 40px solid red;
+                border-radius: 5px;
+                border-width: 10px;
+            }
+
+            .smaller-text {
+                font-size: 14px;
+            }
+
+            .red-background {
+                background-color: #ff5353;
+            }
+
+            .pink-background {
+                background-color: pink;
+            }
+
+            .blue-background {
+                background-color: skyblue;
+            }
+        </style>
+
+
+        <h1>Say Hello, Kitty!</h1>
+
+        <div class="centered border bigger-image ">
+            <img src=https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png
+                alt="Hello Kitty in a  blue jumper, and a red ribbon." id="Hello Kitty Picture">
+        </div>
+
+        <h2> Do you like her??!!!</h2>
+        <form action="#">
+            <label><input type="radio" name="like-dislike"> YESSS</label>
+            <label><input type="radio" name="like-dislike">No i am cringe</label>
+        </form>
+
+        <p class="red-background"> Reasons why I think Hello Kitty is cool: </p>
+        <ul>
+            <li> she has cat ears </li>
+            <li> wears cute overalls </li>
+            <li> is my comfort character </li>
+            <li> she is so based </li>
+        </ul>
+
+        <p class="smaller-text pink-background">
+            This adorable cat with a fur as white as snow (hence sometimes referred to as "kitty white")
+            has something special about her. Her appearance is recognised worldwide, as the company that made her
+            (Sanrio) has existed since 1975! That is a long time ago !!
+            Hello Kitty is frequently seen in Japanese pop culture, and has made her way into the West as well.
+
+        </p>
+        <p class="smaller-text blue-background">
+            Ever since the first poducts rolled out on the market, the company has received massive commercial success.
+            Do you know what the first Hello Kitty-themed product ever sold was?
+            It was a coin purse (see image) !
+        </p>
+        <div class="smaller-image border2 centered">
+            <img id="coin pouch" src="https://upload.wikimedia.org/wikipedia/en/2/29/Hello_Kitty_coin_purse.jpg"
+                alt="A transparent coin pouch, with a red and blue Hello Kitty Design.">
+        </div>
+
+        <a href="https://en.wikipedia.org/wiki/Hello_Kitty" id="tribute-link" target=_blank> click here for more
+            information about this super awesome character! </a>
+
+    </body>
+</main>
