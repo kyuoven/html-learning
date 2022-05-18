@@ -1,14 +1,6 @@
 <!--
-
-to do:
--fix background
--fix gradient (incl background)
--make eveything look more stylish?????
--add alt image????
--alt text for image????????????
--a link to anywhere special?????????????????????????????????
--aaa??????????????????????????????????????????????????????????????????
-
+i yassified it basically
+check notes for ::before and ::after documentation
 -->
 
 <!DOCTYPE html>
@@ -20,6 +12,8 @@ to do:
         --color-blue: #3993c1;
         --color-pink: #ffafd8;
         --color-white: #ffffff;
+        --color-purple: #ddb7f4;
+        --color-black: #000000;
     }
 
     *,
@@ -37,14 +31,13 @@ to do:
         margin: 0;
     }
 
-
     body::before {
         content: '';
         position: absolute;
         height: 100%;
         width: 100%;
-        background-image: url(https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg);
-        opacity: 0.4;
+        background-image: url(https://wallpapers.com/images/high/simple-black-and-white-kuromi-02fp86lm7lienzmq.jpg);
+        opacity: 0.2;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -57,7 +50,7 @@ to do:
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(to bottom, transparent 0%, black 150%);
+        background: linear-gradient(to bottom, transparent 0%, pink 150%);
     }
 
     h1 {
@@ -86,7 +79,7 @@ to do:
     button,
     select,
     textarea {
-        margin: a0;
+        margin: 1rem;
         font-family: inherit;
         font-size: inherit;
         line-height: inherit;
@@ -143,7 +136,7 @@ to do:
 
     @media (min-width:300px) {
         form {
-            padding: 2rem;
+            padding: 1rem;
         }
     }
 
@@ -188,10 +181,10 @@ to do:
     .submit-button {
         display: block;
         width: 100%;
-        padding: 0.7rem;
+        padding: 0.4rem;
         background: var(--color-pink);
         color: inherit;
-        border-radius: 3px;
+        border-radius: 10px;
         cursor: pointer;
     }
 
@@ -220,26 +213,26 @@ to do:
             <p class="text-center description bigger-text"> Okay here we go !! </p>
             <div class="form-group">
                 <label id="name-label" for="name">Fill in your name:</label>
-                <input id="name" type="text" name="name" class="form-control" placeholder="enter name" required />
+                <input id="name" type="text" name="name" class="form-control" placeholder="enter name💌" required />
                 <div class="form-group">
                     <label id="email-label" for="email">Fill in your email:</label>
-                    <input id="email" type="email" name="email" class="form-control" placeholder="enter email"
+                    <input id="email" type="email" name="email" class="form-control" placeholder="enter email🐇"
                         required />
                 </div>
                 <div class="form-group">
                     <label id="number-label" for="Number">How old are you?<span class="clue">(optional)</span> </label>
                     <input type="number" name="age" id="number" min="12" max="100" class="form-control"
-                        placeholder="enter age" required />
+                        placeholder="enter age🎀" required />
                 </div>
                 <div class="form-group">
                     <label id="zodiac-label" for="zodiac">What is your zodiac?</label>
                     <input type="text" name="zodiac" id="zodiac-sign" class="form-control"
-                        placeholder="enter zodiac sign" required />
+                        placeholder="enter zodiac sign🌸" required />
                 </div>
                 <div class="form-group">
                     <p> Important question! Who is your favorite Sanrio character??</p>
                     <select id="dropdown" name="favesanrio" class="form-control" required>
-                        <option disable selected value> choose a character</option>
+                        <option disable selected value> choose your character</option>
                         <option value="Hello Kitty">Hello Kitty</option>
                         <option value="My Melody">My Melody</option>
                         <option value="Cinnamoroll">Cinnamoroll</option>
@@ -267,10 +260,11 @@ to do:
                         <input name="gamer" value="never" type="radio" class="input-radio" /> Never
                     </label>
                 </div>
+
                 <div class="form-group">
                     <p>
                         What is ur favorite color ? :D
-                        <span class="clue">(you can check multiple options)</span>
+                        <span class="clue">(multiple options available)</span>
                     </p>
 
                     <label><input name="prefer" value="red" type="checkbox" class="input-checkbox" />Red</label>
@@ -283,25 +277,22 @@ to do:
                     <label><input name="prefer" value="pink" type="checkbox" class="input-checkbox" />Pink</label>
                     <label><input name="prefer" value="beige" type="checkbox" class="input-checkbox" />Beige</label>
                     <label><input name="prefer" value="black" type="checkbox" class="input-checkbox" />Black</label>
-                    <label><input name="prefer" value="white" type="checkbox" class="input-checkbox" />white</label>
+                    <label><input name="prefer" value="white" type="checkbox" class="input-checkbox" />White</label>
+                    <label><input name="prefer" value="other" type="checkbox" class="input-checkbox" />Other</label>
                     </label>
                 </div>
-
                 <div class="form-group">
-                    <p>What is your favorite coding language?????</p>
+                    <p>what r ur pronouns???</p>
                     <textarea id="comments" class="input-textarea" name="favelang"
-                        placeholder="enter your answer here.."></textarea>
+                        placeholder="yeah i bet u have blue hair and pronouns"></textarea>
                 </div>
-
                 <div class="form-group">
                     <button type="submit" id="submit" class="submit-button">
-                        submit my answers!
+                        <p style="color:var(--color-blue)">submit my answers!</p>
                     </button>
                 </div>
         </form>
-
     </div>
 </body>
-
 
 </html>
