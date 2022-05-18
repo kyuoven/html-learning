@@ -1,0 +1,307 @@
+<!--
+
+to do:
+-fix background
+-fix gradient (incl background)
+-make eveything look more stylish?????
+-add alt image????
+-alt text for image????????????
+-a link to anywhere special?????????????????????????????????
+-aaa??????????????????????????????????????????????????????????????????
+
+-->
+
+<!DOCTYPE html>
+<html>
+<style>
+    :root {
+        --color-beige: #f0d9a7;
+        --color-skyblue: #a7d8f0;
+        --color-blue: #3993c1;
+        --color-pink: #ffafd8;
+        --color-white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.3rem;
+        font-weight: 420;
+        line-height: 1.5;
+        color: var(--color-beige);
+        margin: 0;
+    }
+
+
+    body::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url(https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg);
+        opacity: 0.4;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, black 150%);
+    }
+
+    h1 {
+        font-weight: 40;
+        line-height: 1.3;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    h1,
+    p {
+        margin-top: auto;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        margin: a0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    button {
+        border: 5px;
+        border-radius: 25;
+        border-color: var(--color-pink);
+    }
+
+    .container {
+        width: 100%;
+        margin: 4rem auto 0 auto;
+    }
+
+    @media (max-width: 670px) {
+        .container {
+            max-width: 630px;
+        }
+    }
+
+    @media (min-width: 690px) {
+        .container {
+            max-width: 645px;
+        }
+    }
+
+    .header {
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-style: italic;
+        font-weight: 170;
+    }
+
+    .clue {
+        margin-left: 0, 20rem;
+        font-size: 1rem;
+        color: var(--color-beige)
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    form {
+        background: var(--color-darkblue);
+        padding: 2rem 0.5rem;
+        border-radius: 0.2rem;
+    }
+
+    @media (min-width:300px) {
+        form {
+            padding: 2rem;
+        }
+    }
+
+    .form-group {
+        margin: 0 auto 1rem auto;
+        padding: 0.1rem;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 3rem;
+        padding: 0.4rem 0.8rem;
+        color: whitesmoke;
+        background-color: var(--color-pink);
+        border: 5px solid var(--color-beige);
+        border-radius: 0.4rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-control:focus {
+        border-color: #3993c1;
+        outline: 0.1;
+    }
+
+    .input-radio,
+    .input-checkbox {
+        display: inline-block;
+        margin-right: 0.5rem;
+        min-height: 1rem;
+        min-width: 1rem;
+    }
+
+    .input-textarea {
+        min-height: 145px;
+        width: 100%;
+        padding: 0.5rem;
+        resize: vertical;
+        cursor: auto;
+    }
+
+    .submit-button {
+        display: block;
+        width: 100%;
+        padding: 0.7rem;
+        background: var(--color-pink);
+        color: inherit;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .bigger-text {
+        font-size: 30px;
+    }
+
+    .smaller-text {
+        font-size: 17.5px;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-centerd"> My survey! Hello!</h1>
+            <p id="description" class="description text-center smaller-text">
+                answer my questions and i will decide if ur based or cringe :D
+            </p>
+        </header>
+        <form id="survey-form">
+            <p class="text-center description bigger-text"> Okay here we go !! </p>
+            <div class="form-group">
+                <label id="name-label" for="name">Fill in your name:</label>
+                <input id="name" type="text" name="name" class="form-control" placeholder="enter name" required />
+                <div class="form-group">
+                    <label id="email-label" for="email">Fill in your email:</label>
+                    <input id="email" type="email" name="email" class="form-control" placeholder="enter email"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label id="number-label" for="Number">How old are you?<span class="clue">(optional)</span> </label>
+                    <input type="number" name="age" id="number" min="12" max="100" class="form-control"
+                        placeholder="enter age" required />
+                </div>
+                <div class="form-group">
+                    <label id="zodiac-label" for="zodiac">What is your zodiac?</label>
+                    <input type="text" name="zodiac" id="zodiac-sign" class="form-control"
+                        placeholder="enter zodiac sign" required />
+                </div>
+                <div class="form-group">
+                    <p> Important question! Who is your favorite Sanrio character??</p>
+                    <select id="dropdown" name="favesanrio" class="form-control" required>
+                        <option disable selected value> choose a character</option>
+                        <option value="Hello Kitty">Hello Kitty</option>
+                        <option value="My Melody">My Melody</option>
+                        <option value="Cinnamoroll">Cinnamoroll</option>
+                        <option value="PomPomPurin">PomPomPurin</option>
+                        <option value="Little Twin Stars">Little Twin Stars</option>
+                        <option value="Kuromi">Kuromi</option>
+                        <option value="Badtz-Maru">Badtz-Maru</option>
+                        <option value="Keroppi">Keroppi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <p>How often do you play videogames?</p>
+                    <label>
+                        <input name="gamer" value="all the time" type="radio" class="input-radio" checked /> All the
+                        time</label>
+                    <label>
+                        <input name="gamer" value="sometimes" type="radio" class="input-radio" />Sometimes
+                    </label>
+                    <label>
+                        <input name="gamer" value="from time to time" type="radio" class="input-radio" /> From time to
+                        time
+                    </label>
+                    <label>
+                        <input name="gamer" value="never" type="radio" class="input-radio" /> Never
+                    </label>
+                </div>
+                <div class="form-group">
+                    <p>
+                        What is ur favorite color ? :D
+                        <span class="clue">(you can check multiple options)</span>
+                    </p>
+
+                    <label><input name="prefer" value="red" type="checkbox" class="input-checkbox" />Red</label>
+                    <label>
+                        <input name="prefer" value="orange" type="checkbox" class="input-checkbox" />Orange</label>
+                    <label><input name="prefer" value="Yellow" type="checkbox" class="input-checkbox" />Yellow</label>
+                    <label><input name="prefer" value="green" type="checkbox" class="input-checkbox" />Green</label>
+                    <label><input name="prefer" value="Blue" type="checkbox" class="input-checkbox" />Blue</label>
+                    <label><input name="prefer" value="Purple" type="checkbox" class="input-checkbox" />Purple</label>
+                    <label><input name="prefer" value="pink" type="checkbox" class="input-checkbox" />Pink</label>
+                    <label><input name="prefer" value="beige" type="checkbox" class="input-checkbox" />Beige</label>
+                    <label><input name="prefer" value="black" type="checkbox" class="input-checkbox" />Black</label>
+                    <label><input name="prefer" value="white" type="checkbox" class="input-checkbox" />white</label>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <p>What is your favorite coding language?????</p>
+                    <textarea id="comments" class="input-textarea" name="favelang"
+                        placeholder="enter your answer here.."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="submit-button">
+                        submit my answers!
+                    </button>
+                </div>
+        </form>
+
+    </div>
+</body>
+
+
+</html>
