@@ -1,1 +1,8 @@
 "responsive" web design -> it will adapt to different screen sizes.
+
+Handy Websites:
+https://www.freecodecamp.org/news/learn-css-background-properties/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/
+https://www.w3schools.com/css/css3_flexbox_items.asp
