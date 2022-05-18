@@ -1,0 +1,711 @@
+<!--
+
+    
+
+Objective: Build an app that is functionally similar to https://survey-form.freecodecamp.rocks
+
+User Stories:
+
+    You should have a page title in an h1 element with an id of title
+    You should have a short explanation in a p element with an id of description
+    You should have a form element with an id of survey-form
+    Inside the form element, you are required to enter your name in an input field that has an id of name and a type of text
+    Inside the form element, you are required to enter your email in an input field that has an id of email
+    If you enter an email that is not formatted correctly, you will see an HTML5 validation error
+    Inside the form, you can enter a number in an input field that has an id of number
+    If you enter non-numbers in the number input, you will see an HTML5 validation error
+    If you enter numbers outside the range of the number input, which are defined by the min and max attributes, you will see an HTML5 validation error
+    For the name, email, and number input fields, you can see corresponding label elements in the form, that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label"
+    For the name, email, and number input fields, you can see placeholder text that gives a description or instructions for each field
+    Inside the form element, you should have a select dropdown element with an id of dropdown and at least two options to choose from
+    Inside the form element, you can select an option from a group of at least two radio buttons that are grouped using the name attribute
+    Inside the form element, you can select several fields from a series of checkboxes, each of which must have a value attribute
+    Inside the form element, you are presented with a textarea for additional comments
+    Inside the form element, you are presented with a button with id of submit to submit all the inputs
+
+Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding!
+
+Note: Be sure to add <link rel="stylesheet" href="styles.css"> in your HTML to link your stylesheet and apply your CSS
+
+
+<!DOCTYPE html>
+<html>
+
+<style> 
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* form */
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+</style> 
+
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">freeCodeCamp Survey Form</h1>
+        <p id="description" class="description text-center">
+          Thank you for taking the time to help us improve the platform
+        </p>
+      </header>
+      <form id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number"
+            >Age<span class="clue">(optional)</span></label
+          >
+          <input
+            type="number"
+            name="age"
+            id="number"
+            min="10"
+            max="99"
+            class="form-control"
+            placeholder="Age"
+          />
+        </div>
+        <div class="form-group">
+          <p>Which option best describes your current role?</p>
+          <select id="dropdown" name="role" class="form-control" required>
+            <option disabled selected value>Select current role</option>
+            <option value="student">Student</option>
+            <option value="job">Full Time Job</option>
+            <option value="learner">Full Time Learner</option>
+            <option value="preferNo">Prefer not to say</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>Would you recommend freeCodeCamp to a friend?</p>
+          <label>
+            <input
+              name="user-recommend"
+              value="definitely"
+              type="radio"
+              class="input-radio"
+              checked
+            />Definitely</label
+          >
+          <label>
+            <input
+              name="user-recommend"
+              value="maybe"
+              type="radio"
+              class="input-radio"
+            />Maybe</label
+          >
+
+          <label
+            ><input
+              name="user-recommend"
+              value="not-sure"
+              type="radio"
+              class="input-radio"
+            />Not sure</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>What is your favorite feature of freeCodeCamp?</p>
+          <select id="most-like" name="mostLike" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="challenges">Challenges</option>
+            <option value="projects">Projects</option>
+            <option value="community">Community</option>
+            <option value="openSource">Open Source</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>
+            What would you like to see improved?
+            <span class="clue">(Check all that apply)</span>
+          </p>
+
+          <label
+            ><input
+              name="prefer"
+              value="front-end-projects"
+              type="checkbox"
+              class="input-checkbox"
+            />Front-end Projects</label
+          >
+          <label>
+            <input
+              name="prefer"
+              value="back-end-projects"
+              type="checkbox"
+              class="input-checkbox"
+            />Back-end Projects</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="data-visualization"
+              type="checkbox"
+              class="input-checkbox"
+            />Data Visualization</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="challenges"
+              type="checkbox"
+              class="input-checkbox"
+            />Challenges</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="open-source-community"
+              type="checkbox"
+              class="input-checkbox"
+            />Open Source Community</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="gitter-help-rooms"
+              type="checkbox"
+              class="input-checkbox"
+            />Gitter help rooms</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="videos"
+              type="checkbox"
+              class="input-checkbox"
+            />Videos</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="city-meetups"
+              type="checkbox"
+              class="input-checkbox"
+            />City Meetups</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="wiki"
+              type="checkbox"
+              class="input-checkbox"
+            />Wiki</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="forum"
+              type="checkbox"
+              class="input-checkbox"
+            />Forum</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="additional-courses"
+              type="checkbox"
+              class="input-checkbox"
+            />Additional Courses</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Any comments or suggestions?</p>
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="comment"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+<style>
+    :root {
+        --color-beige: #f0d9a7;
+        --color-skyblue: #a7d8f0;
+        --color-blue: #3993c1;
+        --color-pink: #ffafd8;
+        --color-white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.3rem;
+        font-weight: 420;
+        line-height: 1.5;
+        color: var(--color-beige);
+        margin: 0;
+    }
+
+
+    body::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url(https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg);
+        opacity: 0.4;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h1 {
+        font-weight: 450;
+        line-height: 1.3;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    h1,
+    p {
+        margin-top: auto;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    button {
+        border: 5px;
+        border-radius: 25;
+        border-color: var(--color-pink);
+    }
+
+    .container {
+        width: 100%;
+        margin: 4rem auto 0 auto;
+    }
+
+    @media (max-width: 670px) {
+        .container {
+            max-width: 630px;
+        }
+    }
+
+    @media (min-width: 690px) {
+        .container {
+            max-width: 645px;
+        }
+    }
+
+    .header {
+        padding: 0 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .description {
+        font-style: italic;
+        font-weight: 170;
+    }
+
+    .clue {
+        margin-left: 0, 20rem;
+        font-size: 1rem;
+        color: var(--color-beige)
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    form {
+        background: var(--color-darkblue);
+        padding: 2rem 0.5rem;
+        border-radius: 0.2rem;
+    }
+
+    @media (min-width:300px) {
+        form {
+            padding: 2rem;
+        }
+    }
+
+    .form-group {
+        margin: 0 auto 1rem auto;
+        padding: 0.1rem;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 3rem;
+        padding: 0.4rem 0.8rem;
+        color: darkslategrey;
+        background-color: skyblue;
+        border: 1px solid var(--color-beige);
+        border-radius: 0.4rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-control:focus {
+        border-color: #3993c1;
+        outline: 0.1;
+    }
+
+    .input-radio,
+    .input-checkbox {
+        display: inline-block;
+        margin-right: 0.5rem;
+        min-height: 1rem;
+        min-width: 1rem;
+    }
+
+    .input-textarea {
+        min-height: 145px;
+        width: 100%;
+        padding: 0.5rem;
+        resize: vertical;
+    }
+
+    .submit-button {
+        display: block;
+        width: 100%;
+        padding: 0.7rem;
+        background: var(--color-pink);
+        color: inherit;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-centerd"> My survey! Hello!</h1>
+            <p id="description" class="description text-center">
+                answer my questions and i will decide if ur based or cringe :D
+            </p>
+        </header>
+        <form id="survey-form">
+            <div class="form-group">
+                <label id="name-label" for="name">Fill in your name:</label>
+                <input id="name" type="text" name="name" class="form-control" placeholder="enter name" required />
+                <div class="form-group">
+                    <label id="email-label" for="email">Fill in your email:</label>
+                    <input id="email" type="email" name="email" class="form-control" placeholder="enter email"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label id="number-label" for="Number">How old are you?<span class="clue">(optional)</span> </label>
+                    <input type="number" name="age" id="number" min="12" max="100" class="form-control"
+                        placeholder="enter age" required />
+                </div>
+                <div class="form-group">
+                    <label id="zodiac-label" for="zodiac">What is your zodiac?</label>
+                    <input type="text" name="zodiac" id="zodiac-sign" class="form-control"
+                        placeholder="enter zodiac sign" required />
+                </div>
+                <div class="form-group">
+                    <p> Important question! Who is your favorite Sanrio character??</p>
+                    <select id="dropdown" name="favesanrio" class="form-control" required>
+                        <option disable selected value> choose a character</option>
+                        <option value="Hello Kitty">Hello Kitty</option>
+                        <option value="My Melody">My Melody</option>
+                        <option value="Cinnamoroll">Cinnamoroll</option>
+                        <option value="PomPomPurin">PomPomPurin</option>
+                        <option value="Little Twin Stars">Little Twin Stars</option>
+                        <option value="Kuromi">Kuromi</option>
+                        <option value="Badtz-Maru">Badtz-Maru</option>
+                        <option value="Keroppi">Keroppi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <p>How often do you play videogames?</p>
+                    <label>
+                        <input name="gamer" value="all the time" type="radio" class="input-radio" checked /> All the
+                        time</label>
+                    <label>
+                        <input name="gamer" value="sometimes" type="radio" class="input-radio" />Sometimes
+                    </label>
+                    <label>
+                        <input name="gamer" value="from time to time" type="radio" class="input-radio" /> From time to
+                        time
+                    </label>
+                    <label>
+                        <input name="gamer" value="never" type="radio" class="input-radio" /> Never
+                    </label>
+                </div>
+                <div class="form-group">
+                    <p>
+                        What is ur favorite color ? :D
+                        <span class="clue">(you can check multiple options)</span>
+                    </p>
+
+                    <label><input name="prefer" value="red" type="checkbox" class="input-checkbox" />Red</label>
+                    <label>
+                        <input name="prefer" value="orange" type="checkbox" class="input-checkbox" />Orange</label>
+                    <label><input name="prefer" value="Yellow" type="checkbox" class="input-checkbox" />Yellow</label>
+                    <label><input name="prefer" value="green" type="checkbox" class="input-checkbox" />Green</label>
+                    <label><input name="prefer" value="Blue" type="checkbox" class="input-checkbox" />Blue</label>
+                    <label><input name="prefer" value="Purple" type="checkbox" class="input-checkbox" />Purple</label>
+                    <label><input name="prefer" value="pink" type="checkbox" class="input-checkbox" />Pink</label>
+                    <label><input name="prefer" value="beige" type="checkbox" class="input-checkbox" />Beige</label>
+                    <label><input name="prefer" value="black" type="checkbox" class="input-checkbox" />Black</label>
+                    <label><input name="prefer" value="white" type="checkbox" class="input-checkbox" />white</label>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <p>What is your favorite coding language?????</p>
+                    <textarea id="comments" class="input-textarea" name="favelang"
+                        placeholder="enter your answer here.."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="submit-button">
+                        submit my answers!
+                    </button>
+                </div>
+        </form>
+
+    </div>
+</body>
+
+
+</html>
