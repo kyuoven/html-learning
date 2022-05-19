@@ -25,6 +25,268 @@ Fulfill the user stories and pass all the tests below to complete this project. 
 
 Note: Be sure to add <link rel="stylesheet" href="styles.css"> in your HTML to link your stylesheet and apply your CSS
 
+url lewmio (bg):  https://pbs.twimg.com/media/FTGzM4GWQAA3Ft-?format=jpg&name=360x360
+url lewmio (no bg): https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360
 
+https://open.spotify.com/playlist/19GlIn4V7EQVUGPGu0ozKM?si=decc1a9be6904907
 
+product idea: monthly subscription box full of sanrio-sanx themed items
 -->
+
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=Fuzzy+Bubbles" rel="stylesheet" type="text/css">
+<style>
+    h1 {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 60vw;
+    }
+
+    @media (max-with: 700px) {
+        .logo {
+            margin-top: 10px;
+            width: 100%;
+            height: 100%;
+            position: sticky;
+        }
+    }
+
+    .logo>img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        margin: auto;
+    }
+
+    #box1 {
+        display: flex;
+        position: flex-start;
+    }
+
+    #box2 {
+        display: flex;
+        position: flex-end;
+    }
+
+    #box3 {
+        display: flex;
+        position: flex-start;
+    }
+
+    #box4 {
+        display: flex;
+        position: flex-end;
+    }
+
+    .product {
+        text-align: center
+    }
+
+    .buttons {
+        color: white;
+        cursor: pointer;
+    }
+
+    .description {
+        text-align: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    .DottedBorder {
+        border-style: dotted;
+        border-radius: 15px;
+        border-color: #eebf9a;
+        border-width: 4px;
+        padding: 10px;
+    }
+
+    #subscribe {
+        font-family: 'Fuzzy Bubbles', cursive;
+        font-weight: 75;
+        font-display: auto;
+        color: rgb(238, 191, 154)
+    }
+
+    #expectations {
+        font-family: 'Fuzzy Bubbles', cursive;
+        font-weight: 75;
+        font-display: auto;
+        color: rgb(238, 191, 154)
+    }
+
+    #about {
+        font-family: 'Fuzzy Bubbles', cursive;
+        font-weight: 75;
+        font-display: auto;
+        color: rgb(238, 191, 154)
+    }
+
+    #contact {
+        font-family: 'Fuzzy Bubbles', cursive;
+        font-weight: 75;
+        font-display: auto;
+        color: rgb(238, 191, 154)
+    }
+
+    #blog {
+        font-family: 'Fuzzy Bubbles', cursive;
+        font-weight: 75;
+        font-display: auto;
+        color: rgb(238, 191, 154)
+    }
+
+    #header_contain {
+        width: 935px;
+        height: 135px;
+        background-image: url('https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360');
+        background-repeat: no-repeat;
+        background-color: #ffafda8a;
+        display: inline;
+    }
+
+    .productcontainer {
+        border: hsl(341, 35%, 77%);
+        border-radius: 10px;
+
+    }
+
+    .title {
+        font-size: 50px;
+        font-style: italic;
+        font-weight: bold;
+        color: hsl(341, 35%, 77%);
+    }
+
+    ul {
+        border: 5px solid rgb(248, 202, 171);
+        padding: 10px;
+        border-radius: 10px
+    }
+
+    li {
+        display: inline-block;
+        border: 1px solid rgb(242, 169, 202);
+        margin: 10px;
+        padding: 10px;
+        vertical-align: top;
+    }
+
+    span {
+        border: 5px dashed rgb(251, 162, 207);
+        margin: 0 10px;
+        padding: 5px;
+    }
+
+    .push {
+        margin-left: -20px;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Rubik:ital,wght@1,500&display=swap"
+        rel="stylesheet">
+</head>
+<div class="title"> Welcome to LEWMIO!</div>
+<div class="title"> Enjoy your stay ~ </div>
+<img class="logo" href="">
+<div class="description DottedBorder"> A monthly surprise box filled with goodies to make you smile :) Boxed with love ♥
+</div>
+
+
+
+<body>
+    <div id="">
+        <header id="header">
+            <div class="logo" href="#header_contain">
+                <img id="header-img" class="logo"
+                    src="https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360"
+                    alt="A colorful, simplistic olive pictured as a logo for Lewmio." />
+            </div>
+
+            <nav id="nav-bar">
+                <ul>
+                    <li><a class="nav-link" href="#subscribe">Subscribe</a></li>
+                    <li><a class="nav-link" href="#expectations">What's in my box?</a></li>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#contact">Contact us</a></li>
+                    <li><a class="nav-link" href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <container class="productcontainer">
+        <p class="description" style=" font-size: 40px;"> Choose your box </p>
+
+        <div class="product" href="#box1">
+            <h1>
+                One-time box
+            </h1>
+            <img style="max-width: 400px"
+                src="https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/89689_XXX_v1.tif&wid=480&cvt=jpeg">
+            <h3>
+                15.50 EUR
+            </h3>
+            <p>
+                Not sure if you would like a recurring subscription? Not a problem! You can choose any size of box to be
+                delivered to you next month. Show your love by leaving us a review!
+
+            </p>
+        </div>
+        <div class="product" href="#box2">
+            <h1>
+                Monthly Lite box
+            </h1>
+            <img style="max-width: 400px" src="https://i.pinimg.com/474x/5e/e3/e6/5ee3e6c10487fc87a269b32a3df3d888.jpg">
+            <h3>
+                22.99 EUR
+            </h3>
+            <p> Our lightest model; Great things come in small packages!
+            </p>
+        </div>
+        <div class="product" href="#box3">
+            <h1>
+                Monthly Medium box
+            </h1>
+            <img style="max-width: 400px"
+                src="https://images.prismic.io/yumetwins/52cfcf32-9add-43b4-8ecc-ab7eda2ec073_CTA+Banner+Mobile.png?auto=compress,format&rect=0,2,1280,900&w=640&h=450">
+            <h3>
+                28.99 EUR
+                <p>
+                    The best bang for your buck, so much value in a medium-sized packaging.
+                    FREE shipping in EU.
+                </p>
+        </div>
+        <div class="product" href="#box4">
+            <h1>
+                Monthly Large Box
+            </h1>
+            <img style="max-width: 400px"
+                src="https://asset3.mysubscriptionaddiction.com/wp-content/uploads/2017/10/Pusheen-Box-Fall-2017-0006-733x733.jpg">
+            <h3>
+                34.99 EUR
+            </h3>
+            <p>
+                The biggest box you can get! Filled to the brim with cute items.
+                FREE shipping in EU.
+            </p>
+
+
+        </div>
+    </container>
+
+</body>
+
+</html>
