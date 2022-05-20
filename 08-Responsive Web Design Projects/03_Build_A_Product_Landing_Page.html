@@ -37,17 +37,55 @@ product idea: monthly subscription box full of sanrio-sanx themed items
 <html>
 <link href="https://fonts.googleapis.com/css?family=Fuzzy+Bubbles" rel="stylesheet" type="text/css">
 <style>
+    body {
+        background-color: rgb(247, 237, 207);
+    }
+
     h1 {
-        font-size: 20px;
+        font-size: 25px;
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 25px;
+        color: rgb(238, 154, 159);
+    }
+
+    h3 {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    p {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    li {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
     }
 
     .logo {
-        width: 60vw;
+        width: 200px;
+        display: inline-block;
     }
 
     @media (max-with: 700px) {
         .logo {
-            margin-top: 10px;
+            margin-top: auto;
             width: 100%;
             height: 100%;
             position: sticky;
@@ -58,10 +96,69 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: start;
-        align-items: flex-start;
-        margin: auto;
+        justify-content: flex-start;
+        align-items: start;
+        margin-bottom: auto;
     }
+
+    .titlecontainer {
+        display: grid;
+        grid-template-columns: (3, 1fr);
+        gap: 20px;
+        grid-auto-columns: minmax(100px, auto);
+    }
+
+    .one {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+
+    .titlecontainer>div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: right;
+        margin: auto;
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 20px;
+        color: rgb(238, 154, 159);
+    }
+
+    /*defining the main nav block*/
+    .myNav {
+        display: block;
+        height: 70px;
+        line-height: 70px;
+        background-color: rgb(247, 237, 207);
+    }
+
+    /*removing bullets, margin and padding*/
+    .myNav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .myNav li {
+        display: inline;
+    }
+
+    /*define block styling for links*/
+    .myNav li a {
+        display: inline-block;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    /*displaying active links*/
+    .myNav li a.active {
+        background-color: aliceblue;
+    }
+
 
     #box1 {
         display: flex;
@@ -94,6 +191,7 @@ product idea: monthly subscription box full of sanrio-sanx themed items
 
     .description {
         text-align: center;
+        align-self: center;
         font-family: 'Rubik', sans-serif;
         font-style: italic;
         font-size: 17px;
@@ -108,41 +206,6 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         padding: 10px;
     }
 
-    #subscribe {
-        font-family: 'Fuzzy Bubbles', cursive;
-        font-weight: 75;
-        font-display: auto;
-        color: rgb(238, 191, 154)
-    }
-
-    #expectations {
-        font-family: 'Fuzzy Bubbles', cursive;
-        font-weight: 75;
-        font-display: auto;
-        color: rgb(238, 191, 154)
-    }
-
-    #about {
-        font-family: 'Fuzzy Bubbles', cursive;
-        font-weight: 75;
-        font-display: auto;
-        color: rgb(238, 191, 154)
-    }
-
-    #contact {
-        font-family: 'Fuzzy Bubbles', cursive;
-        font-weight: 75;
-        font-display: auto;
-        color: rgb(238, 191, 154)
-    }
-
-    #blog {
-        font-family: 'Fuzzy Bubbles', cursive;
-        font-weight: 75;
-        font-display: auto;
-        color: rgb(238, 191, 154)
-    }
-
     #header_contain {
         width: 935px;
         height: 135px;
@@ -150,6 +213,8 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         background-repeat: no-repeat;
         background-color: #ffafda8a;
         display: inline;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
     .productcontainer {
@@ -188,6 +253,17 @@ product idea: monthly subscription box full of sanrio-sanx themed items
     .push {
         margin-left: -20px;
     }
+
+    .grid-container {
+        display: grid;
+        height: 400px;
+        align-content: end;
+        margin: 150px;
+        border-style: double;
+        border-radius: 10px;
+        border-width: 10px;
+        border-color: purple
+    }
 </style>
 
 <head>
@@ -198,10 +274,12 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Rubik:ital,wght@1,500&display=swap"
         rel="stylesheet">
 </head>
-<div class="title"> Welcome to LEWMIO!</div>
-<div class="title"> Enjoy your stay ~ </div>
-<img class="logo" href="">
-<div class="description DottedBorder"> A monthly surprise box filled with goodies to make you smile :) Boxed with love ♥
+<div class="titlecontainer">
+    <div style="font-size: 40px" class="title">Welcome to LEWMIO!</div>
+    <div class="title"> Enjoy your stay ~ </div>
+    <div class="description DottedBorder "> A monthly surprise box filled with goodies to make you smile :) Boxed
+        with love ♥
+    </div>
 </div>
 
 
@@ -209,19 +287,19 @@ product idea: monthly subscription box full of sanrio-sanx themed items
 <body>
     <div id="">
         <header id="header">
-            <div class="logo" href="#header_contain">
-                <img id="header-img" class="logo"
-                    src="https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360"
-                    alt="A colorful, simplistic olive pictured as a logo for Lewmio." />
+            <div class="logo titlecontainer" href="#header_contain">
+                <img id="header-img" class="logo titlecontainer"
+                    src="https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360" alt="Lewmio logo." />
             </div>
 
-            <nav id="nav-bar">
+            <nav id="nav-bar" class="myNav">
                 <ul>
-                    <li><a class="nav-link" href="#subscribe">Subscribe</a></li>
-                    <li><a class="nav-link" href="#expectations">What's in my box?</a></li>
-                    <li><a class="nav-link" href="#about">About</a></li>
-                    <li><a class="nav-link" href="#contact">Contact us</a></li>
-                    <li><a class="nav-link" href="#blog">Blog</a></li>
+                    <li><a class="myNav" href="#subscribe">Subscribe</a></li>
+                    <li><a class="myNav" href="#expectations">What's in my box?</a></li>
+                    <li><a class="myNav" href="#about">About</a></li>
+                    <li><a class="myNav" href="#contact">Contact us</a></li>
+                    <li><a class="myNav" href="#blog">Blog</a></li>
+                    <li><a class="myNav" href="#reviews"></a>Show your love by leaving us a review!</a></li>
                 </ul>
             </nav>
         </header>
@@ -234,14 +312,15 @@ product idea: monthly subscription box full of sanrio-sanx themed items
             <h1>
                 One-time box
             </h1>
-            <img style="max-width: 400px"
+            <img class="grid-container" style="max-width: 400px"
                 src="https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/89689_XXX_v1.tif&wid=480&cvt=jpeg">
             <h3>
-                15.50 EUR
+                15.50 EUR (+shipping costs)
             </h3>
             <p>
-                Not sure if you would like a recurring subscription? Not a problem! You can choose any size of box to be
-                delivered to you next month. Show your love by leaving us a review!
+                Not sure if you would like a recurring subscription? Not a problem! You can choose any size of box
+                to be
+                delivered to you next month.
 
             </p>
         </div>
@@ -249,9 +328,10 @@ product idea: monthly subscription box full of sanrio-sanx themed items
             <h1>
                 Monthly Lite box
             </h1>
-            <img style="max-width: 400px" src="https://i.pinimg.com/474x/5e/e3/e6/5ee3e6c10487fc87a269b32a3df3d888.jpg">
+            <img class="grid-container" style="max-width: 400px"
+                src="https://i.pinimg.com/474x/5e/e3/e6/5ee3e6c10487fc87a269b32a3df3d888.jpg">
             <h3>
-                22.99 EUR
+                22.99 EUR (+shipping costs)
             </h3>
             <p> Our lightest model; Great things come in small packages!
             </p>
@@ -260,27 +340,27 @@ product idea: monthly subscription box full of sanrio-sanx themed items
             <h1>
                 Monthly Medium box
             </h1>
-            <img style="max-width: 400px"
+            <img class="grid-container" style="max-width: 400px"
                 src="https://images.prismic.io/yumetwins/52cfcf32-9add-43b4-8ecc-ab7eda2ec073_CTA+Banner+Mobile.png?auto=compress,format&rect=0,2,1280,900&w=640&h=450">
             <h3>
                 28.99 EUR
                 <p>
                     The best bang for your buck, so much value in a medium-sized packaging.
-                    FREE shipping in EU.
+                    FREE shipping in the EU.
                 </p>
         </div>
         <div class="product" href="#box4">
             <h1>
                 Monthly Large Box
             </h1>
-            <img style="max-width: 400px"
+            <img class="grid-container" style="max-width: 400px"
                 src="https://asset3.mysubscriptionaddiction.com/wp-content/uploads/2017/10/Pusheen-Box-Fall-2017-0006-733x733.jpg">
             <h3>
                 34.99 EUR
             </h3>
             <p>
                 The biggest box you can get! Filled to the brim with cute items.
-                FREE shipping in EU.
+                FREE shipping in the EU.
             </p>
 
 
