@@ -30,7 +30,7 @@ url lewmio (no bg): https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=
 
 https://open.spotify.com/playlist/19GlIn4V7EQVUGPGu0ozKM?si=decc1a9be6904907
 
-product idea: monthly subscription box full of sanrio-sanx themed items
+product idea: monthly subscription box
 -->
 
 <!DOCTYPE html>
@@ -70,8 +70,6 @@ product idea: monthly subscription box full of sanrio-sanx themed items
     }
 
     li {
-        text-align: center;
-        align-self: center;
         font-family: 'Rubik', sans-serif;
         font-style: italic;
         font-size: 17px;
@@ -80,10 +78,11 @@ product idea: monthly subscription box full of sanrio-sanx themed items
 
     .logo {
         width: 200px;
-        display: inline-block;
+        display: fixed;
+        overflow: hidden;
     }
 
-    @media (max-with: 700px) {
+    @media only screen and (max-with: 700px) {
         .logo {
             margin-top: auto;
             width: 100%;
@@ -98,7 +97,7 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         display: flex;
         justify-content: flex-start;
         align-items: start;
-        margin-bottom: auto;
+        margin-top: 0px;
     }
 
     .titlecontainer {
@@ -114,6 +113,7 @@ product idea: monthly subscription box full of sanrio-sanx themed items
     }
 
     .titlecontainer>div {
+        top: 10px;
         width: 100%;
         height: 100%;
         display: flex;
@@ -130,28 +130,35 @@ product idea: monthly subscription box full of sanrio-sanx themed items
 
     /*defining the main nav block*/
     .myNav {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
         display: block;
-        height: 70px;
-        line-height: 70px;
-        background-color: rgb(247, 237, 207);
+        height: 170px;
+        line-height: 20px;
     }
 
     /*removing bullets, margin and padding*/
     .myNav ul {
-        list-style: none;
-        padding: 0;
+        list-style-type: inside;
+        padding: -20;
         margin: 0;
+        text-align: center;
     }
 
     .myNav li {
-        display: inline;
+        display: list-item;
+        border-radius: 50px;
+        margin-left: 250px;
+        margin-right: 250px;
     }
 
     /*define block styling for links*/
     .myNav li a {
-        display: inline-block;
+        display: internal;
         text-align: center;
-        padding: 14px 16px;
+        padding: 10px 16px;
     }
 
     /*displaying active links*/
@@ -247,7 +254,7 @@ product idea: monthly subscription box full of sanrio-sanx themed items
     span {
         border: 5px dashed rgb(251, 162, 207);
         margin: 0 10px;
-        padding: 5px;
+        padding: 10px;
     }
 
     .push {
@@ -255,14 +262,30 @@ product idea: monthly subscription box full of sanrio-sanx themed items
     }
 
     .grid-container {
-        display: grid;
+        display: flex;
         height: 400px;
-        align-content: end;
+        align-content: flex-end;
         margin: 150px;
         border-style: double;
         border-radius: 10px;
         border-width: 10px;
         border-color: purple
+    }
+
+    @media (max-width: 400px; ) {
+        iframe {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+
+    .videocontainer {
+        display: inline-flex;
+    }
+
+    iframe {
+        order: 5;
     }
 </style>
 
@@ -274,15 +297,6 @@ product idea: monthly subscription box full of sanrio-sanx themed items
         href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Rubik:ital,wght@1,500&display=swap"
         rel="stylesheet">
 </head>
-<div class="titlecontainer">
-    <div style="font-size: 40px" class="title">Welcome to LEWMIO!</div>
-    <div class="title"> Enjoy your stay ~ </div>
-    <div class="description DottedBorder "> A monthly surprise box filled with goodies to make you smile :) Boxed
-        with love ♥
-    </div>
-</div>
-
-
 
 <body>
     <div id="">
@@ -292,23 +306,38 @@ product idea: monthly subscription box full of sanrio-sanx themed items
                     src="https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360" alt="Lewmio logo." />
             </div>
 
+            <div class="titlecontainer">
+                <div style="font-size: 40px" class="title">Hello!!</div>
+                <div class="title"> Welcome to LEWMIO !! Enjoy your stay ~ </div>
+                <div class="description DottedBorder about"> A monthly surprise box filled with goodies to make you
+                    smile :)
+                    Boxed
+                    with love ♥
+                </div>
+            </div>
+
+
+
             <nav id="nav-bar" class="myNav">
-                <ul>
-                    <li><a class="myNav" href="#subscribe">Subscribe</a></li>
-                    <li><a class="myNav" href="#expectations">What's in my box?</a></li>
-                    <li><a class="myNav" href="#about">About</a></li>
-                    <li><a class="myNav" href="#contact">Contact us</a></li>
-                    <li><a class="myNav" href="#blog">Blog</a></li>
-                    <li><a class="myNav" href="#reviews"></a>Show your love by leaving us a review!</a></li>
+                <ul class="myNav">
+                    <li><a href="#expectations">What should I expect?</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a id="newsletter" href="#newsletter">Newsletter</a></li>
                 </ul>
             </nav>
         </header>
     </div>
 
+    <iframe width="400" height="300" src="https://www.youtube.com/watch?v=XB--GuT6mNs" title="Youtube video player"
+        frameborder="0" allow="accelrometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+        allowfullscreen>
+    </iframe>
+
+
     <container class="productcontainer">
         <p class="description" style=" font-size: 40px;"> Choose your box </p>
 
-        <div class="product" href="#box1">
+        <div class="product">
             <h1>
                 One-time box
             </h1>
@@ -321,6 +350,11 @@ product idea: monthly subscription box full of sanrio-sanx themed items
                 Not sure if you would like a recurring subscription? Not a problem! You can choose any size of box
                 to be
                 delivered to you next month.
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
 
             </p>
         </div>
@@ -334,6 +368,11 @@ product idea: monthly subscription box full of sanrio-sanx themed items
                 22.99 EUR (+shipping costs)
             </h3>
             <p> Our lightest model; Great things come in small packages!
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
             </p>
         </div>
         <div class="product" href="#box3">
@@ -347,9 +386,15 @@ product idea: monthly subscription box full of sanrio-sanx themed items
                 <p>
                     The best bang for your buck, so much value in a medium-sized packaging.
                     FREE shipping in the EU.
+                <p>
+                    Lorem Ipsum.
+                    Lorem Ipsum. Lorem Ipsum Dolor.
+                    Lorem Ipsum.
+                </p>
+
                 </p>
         </div>
-        <div class="product" href="#box4">
+        <div class="product" id="#expectations">
             <h1>
                 Monthly Large Box
             </h1>
@@ -361,11 +406,25 @@ product idea: monthly subscription box full of sanrio-sanx themed items
             <p>
                 The biggest box you can get! Filled to the brim with cute items.
                 FREE shipping in the EU.
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
             </p>
 
 
         </div>
     </container>
+
+    <section id="#newsletter">
+        <h2 style="color: #bf2d5a; font-size:40px; display: flex; align-content: center; gap: 10px; ; ">Subscribe to our
+            newsletter !</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <input name="email" id="email" type="email" placeholder="Enter your email address" required />
+            <input id="submit" type="submit" value="submit" class="btn" />
+        </form>
+    </section>
 
 </body>
 
