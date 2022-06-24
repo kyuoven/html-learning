@@ -1,0 +1,431 @@
+<!--
+
+
+Objective: Build an app that is functionally similar to https://product-landing-page.freecodecamp.rocks
+
+User Stories:
+
+    Your product landing page should have a header element with a corresponding id="header"
+    You can see an image within the header element with a corresponding id="header-img" (A logo would make a good image here)
+    Within the #header element, you can see a nav element with a corresponding id="nav-bar"
+    You can see at least three clickable elements inside the nav element, each with the class nav-link
+    When you click a .nav-link button in the nav element, you are taken to the corresponding section of the landing page
+    You can watch an embedded product video with id="video"
+    Your landing page has a form element with a corresponding id="form"
+    Within the form, there is an input field with id="email" where you can enter an email address
+    The #email input field should have placeholder text to let users know what the field is for
+    The #email input field uses HTML5 validation to confirm that the entered text is an email address
+    Within the form, there is a submit input with a corresponding id="submit"
+    When you click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit)
+    The navbar should always be at the top of the viewport
+    Your product landing page should have at least one media query
+    Your product landing page should utilize CSS flexbox at least once
+
+Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding!
+
+Note: Be sure to add <link rel="stylesheet" href="styles.css"> in your HTML to link your stylesheet and apply your CSS
+
+url lewmio (bg):  https://pbs.twimg.com/media/FTGzM4GWQAA3Ft-?format=jpg&name=360x360
+url lewmio (no bg): https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360
+
+https://open.spotify.com/playlist/19GlIn4V7EQVUGPGu0ozKM?si=decc1a9be6904907
+
+product idea: monthly subscription box
+-->
+
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=Fuzzy+Bubbles" rel="stylesheet" type="text/css">
+<style>
+    body {
+        background-color: rgb(247, 237, 207);
+    }
+
+    h1 {
+        font-size: 25px;
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 25px;
+        color: rgb(238, 154, 159);
+    }
+
+    h3 {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    p {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    li {
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    .logo {
+        width: 200px;
+        display: fixed;
+        overflow: hidden;
+    }
+
+    @media only screen and (max-with: 700px) {
+        .logo {
+            margin-top: auto;
+            width: 100%;
+            height: 100%;
+            position: sticky;
+        }
+    }
+
+    .logo>img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: start;
+        margin-top: 0px;
+    }
+
+    .titlecontainer {
+        display: grid;
+        grid-template-columns: (3, 1fr);
+        gap: 20px;
+        grid-auto-columns: minmax(100px, auto);
+    }
+
+    .one {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+
+    .titlecontainer>div {
+        top: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: right;
+        margin: auto;
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 20px;
+        color: rgb(238, 154, 159);
+    }
+
+    /*defining the main nav block*/
+    .myNav {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        display: block;
+        height: 170px;
+        line-height: 20px;
+    }
+
+    /*removing bullets, margin and padding*/
+    .myNav ul {
+        list-style-type: inside;
+        padding: -20;
+        margin: 0;
+        text-align: center;
+    }
+
+    .myNav li {
+        display: list-item;
+        border-radius: 50px;
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+
+    /*define block styling for links*/
+    .myNav li a {
+        display: internal;
+        text-align: center;
+        padding: 10px 16px;
+    }
+
+    /*displaying active links*/
+    .myNav li a.active {
+        background-color: aliceblue;
+    }
+
+
+    #box1 {
+        display: flex;
+        position: flex-start;
+    }
+
+    #box2 {
+        display: flex;
+        position: flex-end;
+    }
+
+    #box3 {
+        display: flex;
+        position: flex-start;
+    }
+
+    #box4 {
+        display: flex;
+        position: flex-end;
+    }
+
+    .product {
+        text-align: center
+    }
+
+    .buttons {
+        color: white;
+        cursor: pointer;
+    }
+
+    .description {
+        text-align: center;
+        align-self: center;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-size: 17px;
+        color: rgb(238, 154, 159);
+    }
+
+    .DottedBorder {
+        border-style: dotted;
+        border-radius: 15px;
+        border-color: #eebf9a;
+        border-width: 4px;
+        padding: 10px;
+    }
+
+    #header_contain {
+        width: 935px;
+        height: 135px;
+        background-image: url('https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360');
+        background-repeat: no-repeat;
+        background-color: #ffafda8a;
+        display: inline;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .productcontainer {
+        border: hsl(341, 35%, 77%);
+        border-radius: 10px;
+
+    }
+
+    .title {
+        font-size: 50px;
+        font-style: italic;
+        font-weight: bold;
+        color: hsl(341, 35%, 77%);
+    }
+
+    ul {
+        border: 5px solid rgb(248, 202, 171);
+        padding: 10px;
+        border-radius: 10px
+    }
+
+    li {
+        display: inline-block;
+        border: 1px solid rgb(242, 169, 202);
+        margin: 10px;
+        padding: 10px;
+        vertical-align: top;
+    }
+
+    span {
+        border: 5px dashed rgb(251, 162, 207);
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .push {
+        margin-left: -20px;
+    }
+
+    .grid-container {
+        display: flex;
+        height: 400px;
+        align-content: flex-end;
+        margin: 150px;
+        border-style: double;
+        border-radius: 10px;
+        border-width: 10px;
+        border-color: purple
+    }
+
+    @media (max-width: 400px) {
+        iframe {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+
+    .videocontainer {
+        display: inline-flex;
+    }
+
+    iframe {
+        order: 5;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Rubik:ital,wght@1,500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="">
+        <header id="header">
+            <div class="logo titlecontainer" href="#header_contain">
+                <img id="header-img" class="logo titlecontainer"
+                    src="https://pbs.twimg.com/media/FTGzM4DXEAI4YZ7?format=png&name=360x360" alt="Lewmio logo." />
+            </div>
+
+            <div class="titlecontainer">
+                <div style="font-size: 40px" class="title">Hello!!</div>
+                <div class="title"> Welcome to LEWMIO !! Enjoy your stay ~ </div>
+                <div class="description DottedBorder about"> A monthly surprise box filled with goodies to make you
+                    smile :)
+                    Boxed
+                    with love ♥
+                </div>
+            </div>
+
+
+
+            <nav id="nav-bar" class="myNav">
+                <ul class="myNav">
+                    <li><a href="#expectations">What should I expect?</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a id="newsletter" href="#newsletter">Newsletter</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <iframe width="400" height="300" src="https://www.youtube.com/watch?v=XB--GuT6mNs" title="Youtube video player"
+        frameborder="0" allow="accelrometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+        allowfullscreen>
+    </iframe>
+
+
+    <container class="productcontainer">
+        <p class="description" style=" font-size: 40px;"> Choose your box </p>
+
+        <div class="product">
+            <h1>
+                One-time box
+            </h1>
+            <img class="grid-container" style="max-width: 400px"
+                src="https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/89689_XXX_v1.tif&wid=480&cvt=jpeg">
+            <h3>
+                15.50 EUR (+shipping costs)
+            </h3>
+            <p>
+                Not sure if you would like a recurring subscription? Not a problem! You can choose any size of box
+                to be
+                delivered to you next month.
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
+
+            </p>
+        </div>
+        <div class="product" href="#box2">
+            <h1>
+                Monthly Lite box
+            </h1>
+            <img class="grid-container" style="max-width: 400px"
+                src="https://i.pinimg.com/474x/5e/e3/e6/5ee3e6c10487fc87a269b32a3df3d888.jpg">
+            <h3>
+                22.99 EUR (+shipping costs)
+            </h3>
+            <p> Our lightest model; Great things come in small packages!
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
+            </p>
+        </div>
+        <div class="product" href="#box3">
+            <h1>
+                Monthly Medium box
+            </h1>
+            <img class="grid-container" style="max-width: 400px"
+                src="https://images.prismic.io/yumetwins/52cfcf32-9add-43b4-8ecc-ab7eda2ec073_CTA+Banner+Mobile.png?auto=compress,format&rect=0,2,1280,900&w=640&h=450">
+            <h3>
+                28.99 EUR
+                <p>
+                    The best bang for your buck, so much value in a medium-sized packaging.
+                    FREE shipping in the EU.
+                <p>
+                    Lorem Ipsum.
+                    Lorem Ipsum. Lorem Ipsum Dolor.
+                    Lorem Ipsum.
+                </p>
+
+                </p>
+        </div>
+        <div class="product" id="#expectations">
+            <h1>
+                Monthly Large Box
+            </h1>
+            <img class="grid-container" style="max-width: 400px"
+                src="https://asset3.mysubscriptionaddiction.com/wp-content/uploads/2017/10/Pusheen-Box-Fall-2017-0006-733x733.jpg">
+            <h3>
+                34.99 EUR
+            </h3>
+            <p>
+                The biggest box you can get! Filled to the brim with cute items.
+                FREE shipping in the EU.
+            <p>
+                Lorem Ipsum.
+                Lorem Ipsum. Lorem Ipsum Dolor.
+                Lorem Ipsum.
+            </p>
+            </p>
+
+
+        </div>
+    </container>
+
+    <section id="#newsletter">
+        <h2 style="color: #bf2d5a; font-size:40px; display: flex; align-content: center; gap: 10px; ; ">Subscribe to our
+            newsletter !</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <input name="email" id="email" type="email" placeholder="Enter your email address" required />
+            <input id="submit" type="submit" value="submit" class="btn" />
+        </form>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+    ! Media Queries consist of a media type, and if that media type matches the 
+    type of device the document is displayed on, the styles are applied. You can 
+    have as many selectors and styles inside your media query as you want.
+    - @media (min-hieght: x px);
+            p {
+                font-size: x px;
+                etc.
+            }
+    - @media (max-height x px);
+            p {
+                font-size: x px;
+                etc.
+            }
+       
+    -   max-width: 100%; 
+        height: auto; = Responsive image with CSS.
+
+    !The simplest way to make your images properly appear on High-Resolution Displays, such as the MacBook Pros "retina display" 
+    is to define their width and height values as only half of what the original file is. Here is an example of an image that is 
+    only using half of the original height and width:
+
+    - <style>
+        img { height: 250px; width: 250px; }
+    </style>
+    <img src="coolPic500x500" alt="A most excellent picture">
